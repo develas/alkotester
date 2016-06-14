@@ -1,0 +1,1 @@
+You can use 'alkotester' module to find optimal quantity of alcohol in your body for a good mood. For this you need provide your gender and weight(e.g. alkotester('male', 80)).

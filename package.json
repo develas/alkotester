@@ -1,0 +1,31 @@
+{
+  "name": "alcotester",
+  "version": "1.0.2",
+  "description": "Alkotester. Verify your ppm for a good mood.",
+  "main": "alkotester.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/develas/homework.git"
+  },
+  "keywords": [
+    "alkotester"
+  ],
+  "author": "Vadim Gomoniuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/develas/homework/issues"
+  },
+  "homepage": "https://github.com/develas/homework#readme"
+}
