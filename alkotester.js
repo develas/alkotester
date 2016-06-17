@@ -1,39 +1,16 @@
-var util = require('util');
-
 module.exports = function(gender, weight){
-  var maxPPM = 1.5, 
-      coefficient,
-      rawSpirit,
-      spirit,
-      vodka,
-      beer,
-      wine;
+  if (!['male', 'famale'].includes(gender)) throw new Error('You have entered invalid gender');
+  if (!weight || weight<35 || weight>150) throw new Error('Your weight should be between 35 and 150 kilos');
 
-  switch (gender) {
-    case 'male': 
-      coefficient = 0.7;
-      break;
-    case 'female': 
-      coefficient = 0.6;
-      break;
-    default:
-      console.log('You have entered invalid gender.');
-      return;
-  }
+  var maxPPM = 1.5,
+      coefficient = gender === 'male' ? 0.7 : 0.6,
+      rawSpirit = maxPPM*weight*coefficient,
+      spirit = rawSpirit/0.79;
 
-  if(weight<35 || weight>150 || weight===undefined){
-    console.log("Your weight should be between 35 and 150 kilos.");
-    return;
-  }
-
-  rawSpirit = maxPPM*weight*coefficient;
-  spirit = rawSpirit/0.79;
-  vodka = Math.round(spirit/40*110);
-  beer = Math.round(spirit/4.7*110);
-  wine = Math.round(spirit/11*110);
-
-  var result = util.format('For a good mood you enough(~1.5 ppm): Vodka: %dml, Beer: %dml, Wine: %dml', vodka, beer, wine);
-
-  console.log(result);
-  return result;
+  return {
+    vodka: Math.round(spirit/40*110),
+    beer: Math.round(spirit/4.7*110),
+    wine: Math.round(spirit/11*110)
+  };
 }
+
